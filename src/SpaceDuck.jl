@@ -31,8 +31,6 @@ function spaceduck_makie!()
                 labelcolor = "#ece0e1"
             )
         )
-        
-        println("Applied Spaceduck theme for Makie!")
     catch e
         println("Error applying theme: $e")
     end
