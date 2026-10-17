@@ -18,4 +18,5 @@ using Aqua
     include("makie.jl")
     include("plots.jl")
     include("gadfly.jl")
+    include("plotlybase.jl")
 end
