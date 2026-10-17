@@ -4,7 +4,9 @@ using Aqua
 
 @testset "SpaceDuck.jl" begin
     @testset "Aqua" begin
-        Aqua.test_all(SpaceDuck)
+        # The persistent tasks check fails on Gadfly's dependency Hexagons,
+        # which has no Project.toml. SpaceDuck spawns no tasks anyway.
+        Aqua.test_all(SpaceDuck; persistent_tasks = false)
     end
 
     @testset "Palette" begin
@@ -15,4 +17,5 @@ using Aqua
 
     include("makie.jl")
     include("plots.jl")
+    include("gadfly.jl")
 end
