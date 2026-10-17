@@ -1,6 +1,10 @@
 module SpaceDuck
 
+using Colors: Colors, Colorant, @colorant_str
+
 export spaceduck_makie!
+
+include("palette.jl")
 
 # Applies the SpaceDuck theme for Makie
 function spaceduck_makie!()
