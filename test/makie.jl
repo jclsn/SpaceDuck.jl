@@ -1,4 +1,4 @@
-using Makie
+import Makie
 
 @testset "Makie" begin
     theme = theme_spaceduck()
@@ -8,7 +8,7 @@ using Makie
 
     spaceduck_makie!()
     @test Makie.current_default_theme().backgroundcolor[] == SpaceDuck.BACKGROUND
-    fig, ax, plt = lines(1:10)
+    fig, ax, plt = Makie.lines(1:10)
     @test ax.backgroundcolor[] == Makie.to_color(SpaceDuck.BACKGROUND)
     @test plt.color[] == Makie.to_color(SpaceDuck.PALETTE[1])
 

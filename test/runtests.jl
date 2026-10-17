@@ -14,4 +14,5 @@ using Aqua
     end
 
     include("makie.jl")
+    include("plots.jl")
 end
