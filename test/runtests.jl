@@ -8,5 +8,5 @@ using Test
         @test allunique(SpaceDuck.PALETTE)
     end
 
-    @test spaceduck_makie!() == nothing
+    include("makie.jl")
 end

@@ -2,42 +2,36 @@ module SpaceDuck
 
 using Colors: Colors, Colorant, @colorant_str
 
-export spaceduck_makie!
+export theme_spaceduck, spaceduck_makie!
 
 include("palette.jl")
 
-# Applies the SpaceDuck theme for Makie
-function spaceduck_makie!()
-    try
-        @eval using GLMakie
-        
-        # Apply theme for GLMakie
-        @eval set_theme!(
-            backgroundcolor = "#0f111b",
-            textcolor = "#ece0e1",
-            Axis = (
-                backgroundcolor = "#0f111b",
-                titlecolor = "#ece0e1",
-                xlabelcolor = "#ece0e1",
-                ylabelcolor = "#ece0e1",
-                xgridcolor = "#ece0e1",
-                ygridcolor = "#ece0e1",
-                topspinecolor = "#ece0e1",
-                bottomspinecolor = "#ece0e1",
-                leftspinecolor = "#ece0e1",
-                rightspinecolor = "#ece0e1",
-                xticklabelcolor = "#ece0e1",
-                yticklabelcolor = "#ece0e1"
-            ),
-            Legend = (
-                backgroundcolor = "#0f111b",
-                framecolor = "#ece0e1",
-                labelcolor = "#ece0e1"
-            )
-        )
-    catch e
-        println("Error applying theme: $e")
-    end
+"""
+    theme_spaceduck()
+
+Return the SpaceDuck theme as a `Makie.Theme`.
+
+Requires Makie (or one of its backends, e.g. CairoMakie or GLMakie) to be loaded.
+
+# Examples
+```julia
+using CairoMakie, SpaceDuck
+set_theme!(theme_spaceduck())
+with_theme(theme_spaceduck()) do
+    lines(rand(10))
 end
+```
+"""
+function theme_spaceduck end
+
+"""
+    spaceduck_makie!()
+
+Set the SpaceDuck theme as the global Makie theme.
+Shorthand for `set_theme!(theme_spaceduck())`.
+
+Requires Makie (or one of its backends) to be loaded.
+"""
+function spaceduck_makie! end
 
 end  # module SpaceDuck
